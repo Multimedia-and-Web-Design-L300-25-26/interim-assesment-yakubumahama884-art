@@ -1,100 +1,66 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/fcRde9Vj)
-# Coinbase Clone - React & Tailwind CSS Assignment
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/bMYWKvYv)
+# Interim Assessment: Full-Stack Integration – Coinbase Clone
 
-## 📋 Overview
+In this assignment, you will integrate your cloned coinbase frontend with a backend API to build a functional cryptocurrency platform with authentication and dynamic data.
 
-In this assignment, you will build a full clone of the [Coinbase](https://www.coinbase.com/) website using **React.js** and **Tailwind CSS**. This project will help you practice component-based architecture, client-side routing, responsive design, and modern CSS utilities.
+You are required to implement the features using Node.js with MongoDB as the database. Create proper data models (schemas) and structure your project using best practices (models, routes, and controllers). All features must be exposed through RESTful APIs for the frontend to consume.
 
----
+## 1. Authentication System (JWT-Based)
 
-## 🚀 Getting Started
+### Register (GET /register)
 
-After accepting this assignment, follow these steps:
+Create a user account using:
 
-### 1. Clone Your Repository
+- Name
+- Email
+- Password
 
-```bash
-git clone <your-repository-url>
-```
+Send data to the backend API and ensure it is properly stored in the database. Also handle success and error responses appropriately, returning clear and meaningful feedback based on the outcome of each request.
 
-### 2. Install Dependencies
+### Login (GET /login)
 
-```bash
-npm install
-```
+Authenticate users using email and password, store the returned JWT token securely (preferably using HTTP-only cookies), and redirect the user to the homepage after a successful login.
 
-### 3. Start the Development Server
+## 2. Protected User Profile Page
 
-```bash
-npm run dev
-```
+### Create a User Dashboard/Profile Page(GET /profile)
 
-The app will be available at `http://localhost:5173`
+Fetch and display:
 
----
+- User name
+- Email
+- Any other relevant info from backend
 
-### Technical Requirements
+**NOTE:** This page must be protected and only accessible to authenticated users with a valid JWT token. If the user is not authenticated, they should be redirected to the login page.
 
-- [ ] Use **React Router** for client-side navigation
-- [ ] Use **functional components** with React hooks
-- [ ] Create **reusable components** (Button, Card, CryptoRow, etc.)
-- [ ] Use **Tailwind CSS** for all styling (no external CSS frameworks)
-- [ ] Implement **responsive design** (mobile, tablet, desktop)
-- [ ] Use **React state management** (useState, useContext, or similar)
-- [ ] Follow **proper file structure** and naming conventions
-- [ ] Write **clean, readable code** with appropriate comments
+## 3. Crypto Data Integration
 
----
+### GET /crypto (All Tradable Cryptocurrencies)
 
-## 📁 Project Structure
+Fetch all available cryptocurrencies from the backend and display them on the frontend.
 
-```
-src/
-├── assets/          # Images, icons, and other static files
-├── components/      # Reusable React components
-│   ├── common/      # Shared components (Button, Card, Input, etc.)
-│   ├── layout/      # Layout components (Navbar, Footer, Sidebar)
-│   └── crypto/      # Crypto-specific components (CryptoCard, PriceChart)
-├── pages/           # Page components
-│   ├── Home.jsx
-│   ├── Explore.jsx
-│   ├── AssetDetail.jsx
-│   ├── Learn.jsx
-│   ├── SignIn.jsx
-│   └── SignUp.jsx
-├── data/            # Mock data and constants
-├── hooks/           # Custom React hooks (optional)
-├── App.jsx          # Main application with routing
-├── App.css          # Global styles (if needed)
-├── main.jsx         # Application entry point
-└── index.css        # Tailwind CSS imports
-```
+### GET /crypto/gainers (Top Gainers)
+
+Fetch cryptocurrencies with the highest percentage increase in price, sorted from highest to lowest.
+
+### GET /crypto/new (New Listings)
+
+Fetch the most recently added cryptocurrencies, sorted from newest to oldest.
+
+### POST /crypto (Add New Cryptocurrency)
+
+Create a new cryptocurrency using:
+
+- Name
+- Symbol
+- Price
+- Image
+- 24h Change (percentage change in price over the last 24 hours, e.g. +2.5)
+
+Send data to the backend API and ensure it is properly stored in the database (MongoDB). Also handle success and error responses appropriately, returning clear and meaningful feedback based on the outcome of each request.
 
 ---
 
-## 🎨 Design Reference
+Push your backend code to GitHub Classroom, deploy the backend (recommended: Render), and integrate it into your Coinbase clone frontend repository. After completing the integration, deploy the updated frontend as well. Finally, submit the links to your deployed backend, deployed frontend, and your updated Coinbase clone repository via the Google Form attached.
 
-Visit [coinbase.com](https://www.coinbase.com/) 
-
-- Overall layout and structure across all pages
-- Consistent color scheme and typography
-- Navigation flow between pages
-- Responsive behavior on all screen sizes
-- User interface patterns and interactions
-
----
-
-## 💡 Helpful Resources
-
-- [React Documentation](https://react.dev/)
-- [React Router Documentation](https://reactrouter.com/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Vite Documentation](https://vitejs.dev/)
-- [Heroicons](https://heroicons.com/) - Free SVG icons
-- [reacticons](https://react-icons.github.io/react-icons/) - Free SVG icons
-
----
-
-## 🌐 Deployment on Netlify
-
-You must deploy your completed project on **Netlify**.
+**NOTE:** Ensure that all submitted links are accurate and working, as no marks will be awarded for invalid or inaccessible submissions.
